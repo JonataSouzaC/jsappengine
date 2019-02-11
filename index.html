@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Arbor</title>
+
+  <script language="javascript" type="text/javascript"  src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script language="javascript" type="text/javascript" src="http://cdn.jsdelivr.net/gh/chompatas/testando/arbor.js" ></script>
+  <script language="javascript" type="text/javascript" src="http://cdn.jsdelivr.net/gh/chompatas/testando/graphics.js" ></script>
+  <script language="javascript" type="text/javascript" src="http://cdn.jsdelivr.net/gh/chompatas/testando/renderer.js" ></script>
+
+</head>
+<body>
+  
+  <canvas id="janela" width="600" height="600">
+    <p>Seu navegador não tem suporte ao canvas!</p>
+  </canvas>
+
+  <script type="text/javascript">
+      
+      var sys = arbor.ParticleSystem(1000,400,1,true);
+      //sys.parameters({gravity:true});
+      sys.renderer = Renderer("#janela");
+
+      var data = {
+        nodes:{
+          nodo1:{'label':'computador','shape':'dot','color':'red'},
+          nodo2:{'label':'monitor','color':'yellow'}
+        },
+        edges:{
+          nodo1:{nodo2:{}}
+        }
+      };
+
+      sys.graft(data);
+  </script>
+
+</body>
+</html>
